@@ -1,6 +1,6 @@
 <template>
     <div class="main">
-        主页
+        <h1>主页</h1>
     </div>
 </template>
 <script>
