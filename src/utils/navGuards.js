@@ -1,5 +1,5 @@
 import router from '../router'
-import Cookie from 'js-cookie'
+// import Cookie from 'js-cookie'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 

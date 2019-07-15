@@ -1,6 +1,7 @@
-# eapp-ops-web
 
-> 营销中心后台管理系统
+# vue-ele-template
+vue &amp; element-ui 项目框架
+> 后台管理系统
 
 ## Build Setup
 
