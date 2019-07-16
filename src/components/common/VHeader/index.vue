@@ -1,6 +1,6 @@
 <template>
     <div class="v-header">
-        头部
+        Header
     </div>
 </template>
 <style lang="stylus" scoped>

@@ -16,7 +16,7 @@
                         </template>
                         <el-menu-item-group>
                             <!-- <span slot="title">分组一</span> -->
-                            <el-menu-item v-for="(sub,j) in item.subs" :index="sub.index" :key="j">{{item.title}}</el-menu-item>
+                            <el-menu-item v-for="(sub,j) in item.subs" :index="sub.index" :key="j">{{sub.title}}</el-menu-item>
                         </el-menu-item-group>
                     </el-submenu>
                 </template>
@@ -32,30 +32,12 @@
 </template>
 
 <script>
+/* eslint-disable no-console */
 export default {
     data() {
         return {
             isCollapse: false,
-            defaultActive: this.$route.path || '',
             menu: [
-                {
-                    // icon: require("./我的@2x.png"),
-                    icon: 'el-icon-location',
-                    index: "/wode",
-                    title: "我的",
-                    show: true,
-                    subs: [
-                        {
-                            index: "/wodeni",
-                            title: "· 我的你",
-                            show: true
-                        },{
-                            index: "/wodewho",
-                            title: "· 我的谁",
-                            show: true
-                        }
-                    ]
-                },
                 {
                     icon: 'el-icon-menu',
                     index: '/A',
@@ -75,13 +57,40 @@ export default {
                     show: true
                 },
                 {
-                    icon: 'el-icon-setting',
+                    icon: 'el-icon-location',
                     index: '/mine',
-                    title: 'mine',
+                    title: 'Mine',
                     show: true
+                },
+                {
+                    // icon: require("./设置@2x.png"),
+                    icon: 'el-icon-setting',
+                    index: "/setting",
+                    title: "设置",
+                    show: true,
+                    subs: [
+                        {
+                            index: "/setting-a",
+                            title: "· 设置A",
+                            show: true
+                        },{
+                            index: "/setting-b",
+                            title: "· 设置B",
+                            show: true
+                        },{
+                            index: "/setting-c",
+                            title: "· 设置C",
+                            show: true
+                        }
+                    ]
                 }
             ]
         };
+    },
+    computed: {
+        defaultActive(){
+            return this.$route.path || '/';
+        }
     },
     created(){
         console.log(this.$route.path,'---当前路由---');

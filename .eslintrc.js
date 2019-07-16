@@ -7,6 +7,7 @@ module.exports = {
   },
   env: {
     browser: true,
+    commonjs: true
   },
   extends: [
     // 推荐规则

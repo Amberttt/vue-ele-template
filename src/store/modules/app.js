@@ -1,41 +1,24 @@
-import Cookies from 'js-cookie';
-
 const app = {
     state: {
-        sidebar: {
-            opened: !+Cookies.get('sidebarStatus')
-        },
         theme: 'default',
-        livenewsChannels: Cookies.get('livenewsChannels') || '[]',
-        visitedViews: []
+        views: []
     },
     mutations: {
-        TOGGLE_SIDEBAR: state => {
-            if (state.sidebar.opened) {
-                Cookies.set('sidebarStatus', 1);
-            } else {
-                Cookies.set('sidebarStatus', 0);
-            }
-            state.sidebar.opened = !state.sidebar.opened;
+        ADD_VIEWS: (state, view) => {
+            if (state.views.includes(view)) return
+            state.views.push(view)
         },
-        ADD_VISITED_VIEWS: (state, view) => {
-            if (state.visitedViews.includes(view)) return
-            state.visitedViews.push(view)
-        },
-        DEL_VISITED_VIEWS: (state, view) => {
-            const index = state.visitedViews.indexOf(view)
-            state.visitedViews.splice(index, 1)
+        DEL_VIEWS: (state, view) => {
+            const index = state.views.indexOf(view)
+            state.views.splice(index, 1)
         }
     },
     actions: {
-        ToggleSideBar: ({ commit }) => {
-            commit('TOGGLE_SIDEBAR')
+        addViews: ({ commit }, view) => {
+            commit('ADD_VIEWS', view)
         },
-        addVisitedViews: ({ commit }, view) => {
-            commit('ADD_VISITED_VIEWS', view)
-        },
-        delVisitedViews: ({ commit }, view) => {
-            commit('DEL_VISITED_VIEWS', view)
+        delViews: ({ commit }, view) => {
+            commit('DEL_VIEWS', view)
         }
     }
 };
