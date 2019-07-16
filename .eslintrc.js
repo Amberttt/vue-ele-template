@@ -33,6 +33,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     // 缩进
     "indent": ["error", 4],
+    // "no-console": 1
     // "semi": 0,
     // "one-var": 0
   }
